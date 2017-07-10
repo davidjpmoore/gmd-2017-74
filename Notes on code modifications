@@ -2,79 +2,25 @@ In reference to the source code modifications and the parameters modifications, 
  
 Just a synthesis:
  
-- To run D-CLM4.5 for evergreen forests: Default options, no changes needed in code or parameters.
+ - To run D-CLM4.5 for evergreen forests: The parameter file used is D-CLM4.5_EvergreenSite_parameters.nc (changes in allometric parameters). No source code modifications
  
-- To run D-CLM4.5 for deciduous forests: No changes in code, but new parameter file used (for LAI parameters).
+- To run D-CLM4.5 for deciduous forests: The parameter file used is D-CLM4.5_DeciduousSite_parameters.nc (changes in allometric and LAI parameters). No source code modifications
  
-- To run D-Litton for evergreen forests: Changes needed in both code (file CNAllocationMod.F90) and parameter file (allometric parameters).
- 
-- To run D-Litton for deciduous forests: Changes needed in both code (file CNAllocationMod.F90) and parameter file (allometric parameters and LAI parameters).
- 
-- To run F-evergreen for evergreen forests: Only changes in parameter file (allometric parameters).
- 
-- To run F-evergreen for deciduous forests: Only changes in parameter file (allometric parameters and LAI parameters)
- 
-- To run F-deciduous for evergreen forests: Only changes in parameter file (allometric parameters).
- 
-- To run F-deciduous for deciduous forests: Only changes in parameter file (allometric parameters and LAI parameters).
- 
-You can find all the used modifications in the source code in CLM and parameter files in Yellowstone. For instance, an example of modified code to run D-Litton for the Harvard site (Ha1) is available in Yellowstone:
- 
-/glade/p/work/fmontane/cases/Ha1_ton1_laidec_1980_2013/SourceMods/src.clm/CNAllocationMod.F90 
- 
-Before making the modified "CNAllocationMod.F90" file available, I would recommend to check it, and modify somme comments in the file. I remember I include some brief comments when I modified the allometric parameters calculation based on Litton. But  the comments I added were temporary comments, and it would be better to edit these comments (or add more comments if you want) to clarify the changes in the calculation of the parameters and refer to Litton et al. 2007 (in case this reference is not in properly cited in the current comments in the code).
- 
-All the parameter files used (including modifications of allometric parameters and LAI parameters) are available in Yellowstone:
- 
-/glade/p/work/fmontane/param_files
- 
-Just in case, I am sending below a text I sent some months ago explaining the CLM modifications we used and a document (attached) with a step by step explanation of modifications we used in CLM.
- 
-In Yellowstone, the relevant cases for the manuscripts are:
- 
-"_cruncep_" which means D-CLM4.5 
- 
-"_ton1_" which means D-Litton
- 
-"_dec2_" which means F_deciduous
- 
-"_ever1_" which means F_evegreen
- 
-"_laidec_" which means modified LAI for deciduous sites.
+- To run D-Litton for evergreen forests: Changes needed in both source code (file CNAllocationMod.F90) and parameter file (changes in allometric parameters). 
+The parameter file used is D-Litton_EvergreenSite_parameters.nc
+The source code modifications are in the file CNAllocationMod.F90
 
-********
-There are several modified parameter files (*.nc) in /glade/p/work/fmontane/param_files, but we only used some of these parameter files in the manuscript. To avoid problems with incorrect parameter files, I am now including the location in Yellowstone for each parameter file used in the manuscript. 
-
- - To run D-CLM4.5 for evergreen forests: Default options, no changes needed in code or parameters. The parameter file used is the default in CLM4.5 (clm_params.c130821.nc), but just in case I copied it with the rest of the parameter files used. Parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821.nc
+- To run D-Litton for deciduous forests: Changes needed in both source code (file CNAllocationMod.F90) and parameter file (changes in allometric and LAI parameters).
+The parameter file used is D-Litton_DeciduousSite_parameters.nc
+The source code modifications are in the file CNAllocationMod.F90
  
-- To run D-CLM4.5 for deciduous forests: No changes in code, but new parameter file used (for LAI parameters). Parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821_cruncep_laidec.nc
+- To run F-Evergreen for evergreen forests: The parameter file used is F-Evergreen_EvergreenSite_parameters.nc (changes in allometric parameters). No changes in code
  
-- To run D-Litton for evergreen forests: Changes needed in both code (file CNAllocationMod.F90) and parameter file (allometric parameters). Parameter file used:
- /glade/p/work/fmontane/param_files/clm_params.c130821_ton1.nc
-Modified file CNAllocationMod.F90 used:
-/glade/p/work/fmontane/cases/Ha1_ton1_laidec_1980_2013/SourceMods/src.clm/CNAllocationMod.F90 
-
-- To run D-Litton for deciduous forests: Changes needed in both code (file CNAllocationMod.F90) and parameter file (allometric parameters and LAI parameters). Parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821_ton1_laidec.nc
-
-Modified file CNAllocationMod.F90 used:
-/glade/p/work/fmontane/cases/Ha1_ton1_laidec_1980_2013/SourceMods/src.clm/CNAllocationMod.F90 
+- To run F-Evergreen for deciduous forests: The parameter file used is F-Evergreen_DeciduousSite_parameters.nc (changes in allometric and LAI parameters). No changes in code
  
-- To run F-evergreen for evergreen forests: Only changes in parameter file (allometric parameters). parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821_ever1.nc
+- To run F-Deciduous for evergreen forests: The parameter file used is F-Deciduous_EvergreenSite_parameters.nc (changes in allometric parameters). No changes in code
 
- 
-- To run F-evergreen for deciduous forests: Only changes in parameter file (allometric parameters and LAI parameters). Parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821_ever1_laidec.nc
-
- 
-- To run F-deciduous for evergreen forests: Only changes in parameter file (allometric parameters). Parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821_dec2.nc 
-
-- To run F-deciduous for deciduous forests: Only changes in parameter file (allometric parameters and LAI parameters). Parameter file used:
-/glade/p/work/fmontane/param_files/clm_params.c130821_dec2_laidec.nc
+- To run F-Deciduous for deciduous forests: The parameter file used is F-Deciduous_DeciduousSite_parameters.nc (changes in allometric and LAI parameters). No changes in code
 
 
 
